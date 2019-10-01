@@ -6,5 +6,5 @@ delve-example.iml
 coverage.out
 
 # Binaries
-./delve-example
+delve-example
 *.exe
