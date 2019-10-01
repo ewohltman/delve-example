@@ -1,0 +1,10 @@
+# Project-specific files
+.idea/
+delve-example.iml
+
+# Test results
+coverage.out
+
+# Binaries
+./delve-example
+*.exe
