@@ -1,31 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type example struct {
-	exampleValue *exampleValue
-}
+	"github.com/ewohltman/delve-example/internal/pkg/example"
+)
 
-type exampleValue struct {
-	value int
-}
-
-func makeExampleSlice() []example {
-	return []example{
-		{exampleValue: &exampleValue{value: 0}},
-		{exampleValue: &exampleValue{value: 0}},
-	}
-}
-
-func output(name string, exampleSlice []example) {
+func output(name string, exampleSlice []*example.Struct) {
 	fmt.Printf("%s: %+v\n", name, exampleSlice)
 }
 
 func main() {
-	examples := makeExampleSlice()
+	examples := example.NewSlice()
 
-	exampleSlice1 := append(examples, example{exampleValue: &exampleValue{value: 1}})
-	exampleSlice2 := append(examples, example{exampleValue: &exampleValue{value: 2}})
+	exampleStruct1 := example.New(1)
+	exampleStruct2 := example.New(2)
+
+	exampleSlice1 := append(examples, exampleStruct1)
+	exampleSlice2 := append(examples, exampleStruct2)
 
 	output("example1", exampleSlice1)
 	output("example2", exampleSlice2)
